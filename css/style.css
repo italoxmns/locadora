@@ -1,0 +1,105 @@
+div#cabecalho{
+    background-color: #563d7c;
+}
+div#rodape{
+    background-color: #563d7c;
+}
+div#divCarousel{
+    background-color: #563d7c;
+}
+
+/*style menu*/
+a.btn{
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
+    color: #563d7c;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid #563d7c;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s 
+}
+a.btn:hover{
+    background-color: #563d7c;
+    color:white;
+}
+a.btn#button{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 1px solid white;
+    background-color: white;
+    color:#563d7c;
+}
+a.link{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+a.link:hover{
+    /* color:#515545; */
+    color: white;
+    text-decoration:underline;
+    }
+/* menu carousel */
+a.btn#menu{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 1px solid white;
+    background-color: white;
+    color:#563d7c;
+}
+a.btn#menu:hover{
+    background-color: #563d7c;
+    color:white;
+}
+
+.btn-outline-primary#btnCarousel {
+    color: white;
+    border-color: white;
+}
+.btn-outline-primary#btnCarousel:hover {
+    background-color:rgb(155, 130, 192);
+    color:white;
+    border-color:rgb(155, 130, 192);
+}
+
+/*formularios*/
+
+div#formulario{
+    background-color:#563d7c; 
+}
+
+/*tabela*/
+
+.thead-dark {
+    color: #fff;
+    background-color: #563d7c; 
+    border-color: #515545;
+}
+
+/* carrousel */
+
+.carousel-inditors li {
+    box-sizing: content-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: red;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+}
