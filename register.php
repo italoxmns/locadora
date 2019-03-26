@@ -1,15 +1,10 @@
-<?php
-    include_once 'layout/layout.php';
-?>
-<?php
-    include_once 'layout/indexMenu.php';
-?>  
+
+  
 <?php
     session_start();
-
-
-    include_once 'model/conn.php';
     include_once 'model/query.php';
+    include_once 'layout/layout.php';
+    include_once 'layout/menuIndex.php';
     
     if(isset($_POST['cadastrar'])){
         $conn = DBConnect();

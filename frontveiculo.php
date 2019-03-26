@@ -1,9 +1,17 @@
 <?php
-    include 'layout/layout.php';
+  session_start();
+  if(!isset($_SESSION['usuarioLog'])){
+    header('location: index.php');
+    session_destroy();
+  }
+  if(isset($_GET['sair'])){
+    session_destroy();
+    header('location:index.php');
+  }
+  include_once 'layout/layout.php';
+  include_once 'layout/menu.php';
 ?>
-<?php
-    include 'layout/menu.php';
-?>
+
 <!--        Formulario-->
 <div class="container">
     <div class="row justify-content-center my-0 py-2" >
@@ -100,9 +108,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="input-group justify-content-end text-white">
-                    <a class="btn btn-md btn-block mx-1" href="#" role="button" id="button">Cadastrar</a>
+                    <a class="btn btn-outline-light btn-md btn-block mx-1" href="#" role="button" id="button">Cadastrar</a>
                 </div>
             </form>
         </div>

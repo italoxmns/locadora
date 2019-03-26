@@ -1,6 +1,6 @@
 <?php 
-    include_once 'config.php';
-    include_once 'conn.php';
+    include_once 'database/config.php';
+    include_once 'database/conn.php';
 
     function DBQuery($table, $params = null, $columns = "*"){
         $params = ($params) ? "{$params}" : null;

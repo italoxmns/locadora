@@ -46,6 +46,30 @@ a.link:hover{
     color: white;
     text-decoration:underline;
     }
+
+.btn.dropdown-toggle{
+    background-color: transparent;
+    border: 1px solid #563d7c;
+    color:#563d7c;
+}
+
+
+a.dropdown-item{
+    color:#563d7c;
+    padding-top: 0.25rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+}
+a.dropdown-item:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+    color:white;
+}
+div.dropdown-menu{
+    border:1px solid #563d7c;
+    color:#563d7c;
+}
 /* menu carousel */
 a.btn#menu{
     padding: .375rem .75rem;
@@ -78,11 +102,27 @@ div#formulario{
 
 /*tabela*/
 
-.thead-dark {
-    color: #fff;
-    background-color: #563d7c; 
-    border-color: #515545;
+
+thead, th {
+    color: #563d7c;
+    background-color: white;
 }
+tbody tr{
+    color: #563d7c;
+    background-color: white;
+}
+tbody tr:hover{
+    color:white;
+    background-color: #563d7c;
+}
+.table thead tr th{
+    border-bottom: 2px solid #563d7c;
+    border-top: 1px solid #563d7c;
+}
+.table tr th,td{
+    border-bottom: 1px solid #563d7c;
+}
+
 
 /* carrousel */
 

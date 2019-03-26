@@ -8,23 +8,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css">  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     
 
-    <title>Hands On</title>
+    <title>Locadora</title>
   </head>
   <body>
     <div class="container-fluid">
         <?php 
-            include 'layout/header.php';
-        ?>
-        
-        <?php
-            include 'layout/footer.php';
+            include_once 'layout/header.php';
+            include_once 'layout/footer.php';
         ?>
     </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
     <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>

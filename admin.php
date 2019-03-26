@@ -1,31 +1,27 @@
 <?php
-    include_once 'layout/layout.php';
-?>
-<?php
-    include_once 'layout/menu.php';
+  session_start();
+  if(!isset($_SESSION['usuarioLog'])){
+    header('location: index.php');
+    session_destroy();
+  }
+  if(isset($_GET['sair'])){
+    session_destroy();
+    header('location:index.php');
+  }
+  include_once 'layout/layout.php';
+  include_once 'layout/menu.php';
 ?>
 <!--        conteudo-->
-<?php
-   session_start();
-   if(!isset($_SESSION['usuarioLog'])){
-      header("location: login.php");
-      session_destroy();
-   }
-   if(isset($_GET['sair'])){
-    session_destroy();
-    header("location: index.php");
-   }
-?>
 <div class="container py-2">
     <div class="row justify-content-center" > 
         <div class="col-sm-8 ">
             <div class="row py-2">
                 <div class="col-12 text-center py-2">
-                    <h3> Lista de Clientes</h3>
+                    <h3 class="Display-5">Demanda de Clientes </h3>
                 </div>
-                <div class="col-12">
+                <div class="col-12 p-1 m-0">
                     <table class="table">
-                      <thead class="thead-dark">
+                      <thead>
                         <tr>
                           <th scope="col">#</th>
                           <th scope="col">First</th>
@@ -48,12 +44,11 @@
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
+                          <td colspan="2">Larry the Bird</td>
                           <td>@twitter</td>
                         </tr>
                       </tbody>
-                    </table> 
+                    </table>
                 </div>
             </div>
         </div>
