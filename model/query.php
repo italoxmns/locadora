@@ -25,7 +25,7 @@
         $columns = ($columns) ? "{$columns}" : null;
         
         if (strpos($columns,"''") !== false) {
-            echo'<script type="text/javascript">document.getElementById("texto").innerHTML = "Teste"</script>';
+            echo'<script>alert("Campos vazios.");</script>';
         }else{
             $insert = "INSERT INTO {$table}{$params} VALUES {$columns}";
             if(!DBExecute($insert)){

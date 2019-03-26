@@ -29,11 +29,15 @@
               </div>
               <div class="form-group ">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <label for="telefone">Telefone</label>
                         <input type="text" class="form-control" required id="telefone" placeholder="(00)">
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
+                        <label for="cpf">CPF</label>
+                        <input type="number" class="form-control" required id="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <div class="col-4">
                         <label for="date">Data e Hora</label>
                         <input type="datetime-local" class="form-control" required id="date" placeholder="DD/MM/AAAA HH:mm">
                     </div>
@@ -41,7 +45,6 @@
               </div>
               <div class="input-group justify-content-end text-white">
                 <input class="btn btn-outline-light btn-md btn-block mx-1"  name="cadastrar" type="submit" value="Cadastrar"> 
-                <!-- <a class="btn btn-outline-light btn-md btn-block mx-1" href="#" onclick="mostrar()" role="button" id="button">Cadastrar</a> -->
               </div>
             </form>
         </div>

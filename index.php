@@ -6,9 +6,9 @@
       <div class="col-lg-6 p-0">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" id="list"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1" id="list"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2" id="list"></li>
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -41,15 +41,13 @@
           include_once 'layout/menuCarousel.php';
           include_once 'modalLogin.php';
           include_once 'modalRegister.php';
-
-
         ?>
-        <div class="col-12 p-4">
-          <h1 class="display-4">Alugue um veículo!</h1>
-          <p class="lead">O melhor lugar para alugar um veiculo, temos mais de 100 tipos de veículos. Planos coletivos, exclusivos e individuais.
+        <div class="col-sm-12 p-sm-4">
+          <h1 class="d-flex-sm display-4">Alugue um veículo!</h1>
+          <p class="lead text-justify">O melhor lugar para alugar um veiculo, temos mais de 100 tipos de veículos. Planos coletivos, exclusivos e individuais.
 
           </p>
-          <form action="">
+          <form action="" class=" d-none d-sm-block">
             <div class="input-group input-group-md mb-3">
               <input type="text" class="form-control" placeholder="e-mail" aria-label="email" aria-describedby="basic-addon2">
               <div class="input-group-append">
