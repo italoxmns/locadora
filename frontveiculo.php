@@ -109,7 +109,8 @@
                     </div>
                 </div>
                 <div class="input-group justify-content-end text-white">
-                    <a class="btn btn-outline-light btn-md btn-block mx-1" href="#" role="button" id="button">Cadastrar</a>
+                    <input class="btn btn-outline-light btn-md btn-block mx-1"  name="cadastrar" type="submit" value="Cadastrar"> 
+                    <!-- <a class="btn btn-outline-light btn-md btn-block mx-1" href="#" role="button" id="button">Cadastrar</a> -->
                 </div>
             </form>
         </div>

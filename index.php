@@ -3,7 +3,7 @@
 ?>
 <section class="container-fluid py-4 my-4" >
     <div class="row text-white" id="divCarousel">
-      <div class="col-lg-7 p-0">
+      <div class="col-lg-6 p-0">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -31,17 +31,18 @@
           </a>
         </div>
       </div>
-      <div class="col-lg-5 p-0">
+      <div class="col-lg-6 p-0">
         <?php
           session_start();
-          
           if(isset($_SESSION['usuarioLog'])){
-            header('location:admin.php');
+            header('location: admin.php');
             die();
-          }else{
-            include_once 'layout/menuCarousel.php';
-            session_destroy();
           }
+          include_once 'layout/menuCarousel.php';
+          include_once 'modalLogin.php';
+          include_once 'modalRegister.php';
+
+
         ?>
         <div class="col-12 p-4">
           <h1 class="display-4">Alugue um veículo!</h1>

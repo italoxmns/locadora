@@ -8,7 +8,12 @@ div#divCarousel{
     background-color: #563d7c;
 }
 
-/*style menu*/
+/*style menu principal*/
+
+
+button.btn:hover{
+    color:#563d7c;
+}
 a.btn{
     text-decoration: none;
     display: inline-block;
@@ -97,8 +102,12 @@ a.btn#menu:hover{
 /*formularios*/
 
 div#formulario{
-    background-color:#563d7c; 
+    background-color:#563d7c;
 }
+h5.modal-title{
+    color:#563d7c;
+}
+
 
 /*tabela*/
 
@@ -136,7 +145,7 @@ tbody tr:hover{
     margin-left: 3px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: red;
+    background-color:white;
     background-clip: padding-box;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
