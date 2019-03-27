@@ -39,8 +39,8 @@
             die();
           }
           include_once 'layout/menuCarousel.php';
-          include_once 'modalLogin.php';
-          include_once 'modalRegister.php';
+          include_once 'modal/login.php';
+          include_once 'modal/register.php';
         ?>
         <div class="col-sm-12 p-sm-4">
           <h1 class="d-flex-sm display-4">Alugue um veículo!</h1>

@@ -1,5 +1,4 @@
 <!--        Menu-->
-
 <div class="col-sm-12 py-2 text-white pr-4">
     <div class="row justify-content-end">
         <button type="button" class="btn btn-outline-light mx-1" data-toggle="modal" data-target="#login">

@@ -31,7 +31,26 @@ a.btn{
 }
 a.btn:hover{
     background-color: #563d7c;
-    color:white;
+    color: white;
+}
+a.btn#plus{
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s 
+}
+a.btn#plus:hover{
+    background-color: white;
+    color: #563d7c;
 }
 a.btn#button{
     padding: .375rem .75rem;
@@ -41,6 +60,7 @@ a.btn#button{
     background-color: white;
     color:#563d7c;
 }
+
 a.link{
     color: white;
     text-decoration: none;
@@ -140,3 +160,5 @@ li#list{
 li#list:hover{ 
     background-color:white;
 }
+
+/* modal */

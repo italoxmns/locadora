@@ -14,19 +14,19 @@
 
 <!--        Formulario-->
 <div class="container">
-    <div class="row justify-content-center my-0 py-2" >
+    <div class="row justify-content-center pt-3 mt-3" >
         <div class="col-8 py-2  text-white rounded-lg" id="formulario">
             <h3 class="text-center">Cadastro de Veículo</h3>
-            <form action="submitforms.php" method="post">
+            <form action="" method="post">
                 <div class="form-group ">
                     <div class="row">
                         <div class="col-4">
                             <label for="placa">Placa</label>
-                            <input type="text" class="form-control" id="placa" placeholder="XXX-0000">
+                            <input type="text" class="form-control" id="placa" required placeholder="XXX-0000">
                         </div>
                         <div class="col-4">
                             <label for="ano">Ano</label>
-                            <input type="number" class="form-control" id="ano" placeholder="AAAA" min="1990" max="2019">
+                            <input type="number" class="form-control" id="ano" required placeholder="AAAA" min="1990" max="2019">
                         </div>
                         <div class="col-4">
                             <label for="lugares">Lugares</label>
@@ -39,26 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="fabricante">Fabricante</label>
-                            <select class="custom-select" id="fabricante">
-                                <option value="" selected> </option>
-                                <option value="1">Fiat</option>
-                                <option value="2">Hiunday</option>
-                                <option value="3">Chevrolet</option>
-                                <option value="4">Toyota</option>
-                                <option value="5">Wolksvagem</option>
-                                <option value="6">Honda</option>
-                            </select>
-                        </div>
-                        <div class="col-6">
-                            <label for="model">Modelo</label>
-                            <input type="text" class="form-control" id="model" placeholder="Modelo do Veículo">
-                        </div>
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col-4">
@@ -72,21 +53,26 @@
                         </div>
                         <div class="col-4">
                             <label for="cor">Cor</label>
-                            <input type="text" class="form-control" id="cor" placeholder="Cor do Veículo">
+                            <input type="text" class="form-control" required id="cor" placeholder="Cor do Veículo">
                         </div>
                         <div class="col-4">
-                            <label for="cat">Categoria</label>
-                            <select class="custom-select" id="portas">
-                                <option value="" selected> </option>
-                                <option value="EN">ENTRADA</option>
-                                <option value="HP">HATCH PEQUENO</option>
-                                <option value="HM">HATCH MÉDIO</option>
-                                <option value="SP">SEDANS PEQUENOS</option>
-                                <option value="SC">SEDANS COMPACTOS</option>
-                                <option value="SM">SEDANS MÉDIOS</option>
-                                <option value="SG">SEDANS GRANDES</option>
-                                <option value="SV">SUV</option>
-                            </select>
+                            <label for="portas">Modelo</label>
+                            <div class="row m-0">
+                                <div class="col-9 m-0 p-0">
+                                    <select class="custom-select" id="modelo">
+                                        <option value="" selected> </option>
+                                        <option value="1">Fiat</option>
+                                        <option value="2">Corsa</option>
+                                        <option value="3">Celta</option>
+                                    </select>
+                                </div>
+                                <div class="col-3 m-0 pr-0">
+                                    <a class="btn m-0 p-1" href="frontmodel.php" id="plus">
+                                        <i class="fas fa-plus-circle p-0" style="font-size:1.7em;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -94,7 +80,7 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="portas">Potência</label>
-                            <select class="custom-select" id="portas">
+                            <select class="custom-select" id="potencia">
                                 <option value="" selected> </option>
                                 <option value="1.0">1.0</option>
                                 <option value="1.5">1.4</option>
@@ -103,13 +89,18 @@
                             </select>
                         </div>
                         <div class="col-6">
-                            <label for="valor">Valor do Aluguel</label>
-                            <input type="text" class="form-control" id="valor" placeholder="R$ 0.00,00">
+                            <label for="portas">Status</label>
+                            <select class="custom-select" id="status">
+                                <option value="" selected> </option>
+                                <option value="1">Disponível</option>
+                                <option value="0">Alocado</option>
+
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="input-group justify-content-end text-white">
-                    <input class="btn btn-outline-light btn-md btn-block mx-1"  name="cadastrar" type="submit" value="Cadastrar"> 
+                    <input class="btn btn-outline-light btn-md btn-block m-0"  name="cadastrar" type="submit" value="Cadastrar"> 
                     <!-- <a class="btn btn-outline-light btn-md btn-block mx-1" href="#" role="button" id="button">Cadastrar</a> -->
                 </div>
             </form>

@@ -12,13 +12,14 @@
                 <div class="col-9">
                     <div class="row justify-content-end">
                         <a class="btn mx-1" href="" role="button" >
-                            <i class="fas fa-folder-minus"></i>
-                            Relatórios</a>
+                            <i class="fas fa-cart-plus"></i>
+                            Alugar</a>
                         <a class="btn mx-1" href="" role="button" >
                             <i class="fas fa-car-side"></i>
                             Veiculos Disponíveis</a>
                         <div class="dropdown">
                           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cash-register"></i>  
                             Cadastro
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

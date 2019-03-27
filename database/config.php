@@ -2,6 +2,6 @@
     define ('HOSTNAME','localhost');
     define ('USERNAME', 'root');
     define ('PASSWORD', null);
-    define ('DATABASE','webauth');
+    define ('DATABASE','locadora');
 //    define ('CHARSET','utf-8');
 ?>

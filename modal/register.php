@@ -21,7 +21,7 @@
     }
 ?>
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" id="formulario">
       <div class="modal-header bg-white">
         <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
