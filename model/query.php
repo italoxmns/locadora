@@ -30,9 +30,10 @@
              
         $insert = "INSERT INTO {$table}{$params} VALUES {$columns}";
         if(!DBExecute($insert)){
-            // return mysqli_error($con);
-            return false;
+            return mysqli_error($con);
+            // return false;
         }else{
+            DBClose($con);
             return true;
         }
     }
