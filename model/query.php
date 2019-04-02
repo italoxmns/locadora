@@ -19,30 +19,29 @@
         }
             
     }
-    function DBInsert ($table, $params = "*", $columns = null){
+    function DBInsert ($table, $params = null, $columns = "*"){
         $con = DBConnect();
-        $params = ($params) ? "{$params}" : "*";
-        $columns = ($columns) ? "{$columns}" : null;
+        $params = ($params) ? "{$params}" : null;
+        $columns = ($columns) ? "{$columns}" : "*";
         
-        if (strpos($columns,"''") !== false) {
-            echo'<script>alert("Campos vazios.");</script>';
+        $insert = "INSERT INTO {$table}{$params} VALUES {$columns};";
+        
+//      return var_dump($insert); retorna a string do sql
+             
+        $insert = "INSERT INTO {$table}{$params} VALUES {$columns}";
+        if(!DBExecute($insert)){
+            // return mysqli_error($con);
+            return false;
         }else{
-            $insert = "INSERT INTO {$table}{$params} VALUES {$columns}";
-            if(!DBExecute($insert)){
-                return mysqli_error($con);
-            }else{
-                return true;
-            }
+            return true;
         }
-        
-        
-        
     }
+        
+    
     function DBExecute($sql){
         $con = DBConnect();
         $result = mysqli_query($con,$sql) or die(mysqli_error($con));
         DBClose($con);
-        
         return $result;
     }
 ?>

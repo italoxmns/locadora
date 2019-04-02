@@ -1,17 +1,22 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['usuarioLog'])){
-    header('location: index.php');
-    session_destroy();
-  }
-  if(isset($_GET['sair'])){
-    session_destroy();
-    header('location:index.php');
-  }
-  include_once 'layout/layout.php';
-  include_once 'layout/menu.php';
-  include_once 'modal/manufacture.php';
-  include_once 'modal/category.php';
+    session_start();
+    include_once 'model/query.php';
+    include_once 'database/conn.php';
+    if(!isset($_SESSION['usuarioLog'])){
+        header('location: index.php');
+        session_destroy();
+    }
+    if(isset($_GET['sair'])){
+        session_destroy();
+        header('location:index.php');
+    }
+    
+    
+    
+    include_once 'layout/layout.php';
+    include_once 'layout/menu.php';
+    include_once 'modal/manufacture.php';
+    include_once 'modal/category.php';
 ?>
 
 <!--        Formulario-->
