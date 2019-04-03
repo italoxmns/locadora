@@ -67,9 +67,9 @@
             }else{
                 //Receber os dados do formulário
                 var dados = $("#form").serialize();
-                $.post("model/cadastrar.php", dados, function (retorna){
-                    alert(retorna);
-                    if(retorna){
+                $.post("cadastrar.php", dados, function (retorna=false){
+                    if(retorna == true){
+                        alert(retorna);
                         //Alerta de cadastro realizado com sucesso
                         $("#msg").html('<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>');
                         
@@ -77,7 +77,7 @@
                         $("#form")[0].reset();
 
                     }else{
-                        $("#msg").html('<div class="alert alert-danger" role="alert">Usuário não cadastrado!</div>');
+                        $("#msg").html('<div class="alert alert-danger" role="alert">Usuário já cadastrado!</div>');
                     }
                 });
             }
