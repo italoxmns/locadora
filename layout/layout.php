@@ -18,6 +18,8 @@
         <?php 
             include_once 'layout/header.php';
             include_once 'layout/footer.php';
+            include_once 'model/query.php';
+            include_once 'database/conn.php';
         ?>
     </div>
   </body>

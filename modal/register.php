@@ -14,8 +14,8 @@
         }else{
             $insert = DBInsert('user_pwd',"(name,email,pass)","('$name','$login','$pass')");
             if(isset($insert)){
-                echo"<script>alert('Dados Inseridos com sucesso.')</script>";
-                header('location: index.php');
+              $_SESSION['usuarioLog'] = true;
+              header("location: admin.php");
             }
         }
     }

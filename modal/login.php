@@ -13,7 +13,7 @@
               $_SESSION['usuarioLog'] = true;
               header("location: admin.php");
           }else{
-              echo "<script>alert('Error');</script>";
+              echo "<script>alert('Usuário ou senha incorretos!');</script>";
           }
       }
 ?>

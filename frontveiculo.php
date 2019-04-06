@@ -10,6 +10,15 @@
   }
   include_once 'layout/layout.php';
   include_once 'layout/menu.php';
+    // realiza a conexao com o banco de dados
+    $con = DBConnect();
+
+    // seleciona a base de dados em que vamos trabalhar
+    $select = DBQuery('modelo','','');
+    
+    $linha = mysqli_fetch_assoc($select);
+    // calcula quantos dados retornaram
+    $total = mysqli_num_rows($select);
 ?>
 
 <!--        Formulario-->
@@ -61,9 +70,16 @@
                                 <div class="col-9 m-0 p-0">
                                     <select class="custom-select" id="modelo">
                                         <option value="" selected> </option>
-                                        <option value="1">Fiat</option>
-                                        <option value="2">Corsa</option>
-                                        <option value="3">Celta</option>
+                                        <?php    
+                                            if($total > 0) {
+                                                do {
+                                        ?>
+                                            <option value="{<?=$linha['idmodelo']?>}"><?=$linha['name']?></option>
+                                        <?php
+                                            }while($linha = mysqli_fetch_assoc($select));
+                                                // fim do if 
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-3 m-0 pr-0">
@@ -92,8 +108,8 @@
                             <label for="portas">Status</label>
                             <select class="custom-select" id="status">
                                 <option value="" selected> </option>
-                                <option value="1">Disponível</option>
-                                <option value="0">Alocado</option>
+                                <option value="true">Disponível</option>
+                                <option value="false">Alocado</option>
 
                             </select>
                         </div>

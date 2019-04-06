@@ -1,7 +1,5 @@
 <?php
     session_start();
-    include_once 'model/query.php';
-    include_once 'database/conn.php';
     if(!isset($_SESSION['usuarioLog'])){
         header('location: index.php');
         session_destroy();
@@ -10,13 +8,20 @@
         session_destroy();
         header('location:index.php');
     }
-    
-    
-    
     include_once 'layout/layout.php';
     include_once 'layout/menu.php';
     include_once 'modal/manufacture.php';
     include_once 'modal/category.php';
+      // realiza a conexao com o banco de dados
+    $con = DBConnect();
+
+    // seleciona a base de dados em que vamos trabalhar
+    $select = DBQuery('cliente');
+    
+    $linha = mysqli_fetch_assoc($select);
+    // calcula quantos dados retornaram
+    $total = mysqli_num_rows($select);
+
 ?>
 
 <!--        Formulario-->

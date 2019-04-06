@@ -1,7 +1,5 @@
 
 <?php
-
-    include_once 'database/conn.php';
     include_once 'query.php';
     $conn = DBConnect();
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -9,11 +7,11 @@
     $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
     $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
 
-    $query_usuario = DBInsert('cliente',"(name,telefone,cpf,email)","('$name','$telefone','$cpf','$email')");
-    if($query_usuario){
-        DBClose($conn);
-        return true;
-    }else{
+    $select = DBQuery('cliente'," where email = '$email' or cpf = '$cpf'",'email');
+    if($select){
         return false;
+    }else{
+        return DBInsert('cliente',"(name,telefone,cpf,email)","('$name','$telefone','$cpf','$email')");;
     }
+    
 ?>

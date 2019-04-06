@@ -67,9 +67,8 @@
             }else{
                 //Receber os dados do formulário
                 var dados = $("#form").serialize();
-                $.post("cadastrar.php", dados, function (retorna=false){
+                $.post("model/cadastrarCliente.php", dados, function (retorna=false){
                     if(retorna == true){
-                        alert(retorna);
                         //Alerta de cadastro realizado com sucesso
                         $("#msg").html('<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>');
                         
