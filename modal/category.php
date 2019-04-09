@@ -1,27 +1,4 @@
-<?php
-    include_once 'database/conn.php';
-    include_once 'model/query.php';
 
-    if(isset($_POST['cadastrar'])){
-        $conn = DBConnect();
-        $category = mysqli_escape_string($conn,$_POST['categoria']);
-        
-        $teste = DBQuery('categoria'," where nome = '$category'",'nome');
-        
-        if($teste){
-            echo "<script>alert('Já existe uma com esse nome')</script>";
-        }else{
-            $insert = DBInsert('categoria',"(nome)","('$category')");
-            if(isset($insert)){
-                echo"<script>alert('Dados Inseridos com sucesso.')</script>";
-                header('location: frontmodel.php');
-            }else{
-              echo"<script>alert('Dados Não inseridos.')</script>";
-              // header('location: frontmodel.php');
-            }
-        }
-    }
-?>
 <div class="modal fade" id="category" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" id="formulario">
@@ -32,10 +9,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form name="form" action="" method="POST">
+        <form name="modalForm" action="" method="POST" id="modalForm">
             <div class="form-group text-white">
-                <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria" required placeholder="Hatch/SUV/Sedan...">
+                <label for="nome">Categoria</label>
+                <input type="text" class="form-control" name="inputNome" id="inputNome" required placeholder="Hatch/SUV/Sedan...">
             </div>
             <div class="input-group justify-content-end text-white py-2">
                 <input class="btn btn-outline-light btn-md btn-block m-0" name="cadastrar" type="submit" value="Cadastrar"> 
@@ -45,3 +22,28 @@
     </div>
   </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('#modalForm').on('submit', function(event){
+            event.preventDefault();
+            if($('#inputNome').val() == ""){
+                $("#msg").html('<div class="alert alert-danger" role="alert">Campo nome não foi preenchido!</div>');
+            }else{
+                //Receber os dados do formulário
+                var dados = $("#modalForm").serialize();
+                $.post("cadastrarCategoria.php", dados, function (retorna){
+                    if(retorna == true){
+                        //Alerta de cadastro realizado com sucesso
+                        $("#msg").html('<div class="alert alert-success" role="alert">Categoria cadastrada com sucesso!</div>');
+                        
+                        //Limpar os campo
+                        $("#modalForm")[0].reset();
+
+                    }else{
+                        $("#msg").html('<div class="alert alert-danger" role="alert">Categoria já cadastrado!</div>');
+                    }
+                });
+            }
+        });
+    });
+</script>

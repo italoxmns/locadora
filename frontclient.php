@@ -11,6 +11,8 @@
     }
     include_once 'layout/layout.php';
     include_once 'layout/menu.php';
+    include_once 'model/query.php';
+    include_once 'database/conn.php';
 ?>
 
 <!--        Formulario-->
@@ -25,7 +27,7 @@
             <form name="form" action="" method="POST" id="form" >
               <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" class="form-control"  id="name" name="name" placeholder="Digite o nome">
+                <input type="text" class="form-control"  id="nome" name="nome" placeholder="Digite o nome">
               </div>
 
               <div class="form-group">
@@ -67,7 +69,7 @@
             }else{
                 //Receber os dados do formulário
                 var dados = $("#form").serialize();
-                $.post("model/cadastrarCliente.php", dados, function (retorna=false){
+                $.post("cadastrarCliente.php", dados, function (retorna){
                     if(retorna == true){
                         //Alerta de cadastro realizado com sucesso
                         $("#msg").html('<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>');

@@ -10,9 +10,8 @@
   }
   include_once 'layout/layout.php';
   include_once 'layout/menu.php';
-
-  // realiza a conexao com o banco de dados
-  $con = DBConnect();
+  include_once 'model/query.php';
+  include_once 'database/conn.php';
 
   // seleciona a base de dados em que vamos trabalhar
   $select = DBQuery('cliente');

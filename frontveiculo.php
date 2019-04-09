@@ -10,11 +10,12 @@
   }
   include_once 'layout/layout.php';
   include_once 'layout/menu.php';
+  include_once 'model/query.php';
     // realiza a conexao com o banco de dados
     $con = DBConnect();
 
     // seleciona a base de dados em que vamos trabalhar
-    $select = DBQuery('modelo','','');
+    $select = DBQuery('modelo');
     
     $linha = mysqli_fetch_assoc($select);
     // calcula quantos dados retornaram
