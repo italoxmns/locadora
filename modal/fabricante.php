@@ -21,28 +21,3 @@
     </div>
   </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $('#modalForm').on('submit', function(event){
-            event.preventDefault();
-            if($('#inputFabricante').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo nome não foi preenchido!</div>');
-            }else{
-                //Receber os dados do formulário
-                var dados = $("#modalForm").serialize();
-                $.post("cadastrarFabricante.php", dados, function (retorna){
-                    if(retorna == true){
-                        //Alerta de cadastro realizado com sucesso
-                        $("#msg").html('<div class="alert alert-success" role="alert">Fabricante cadastrada com sucesso!</div>');
-                        
-                        //Limpar os campo
-                        $("#modalForm")[0].reset();
-
-                    }else{
-                        $("#msg").html('<div class="alert alert-danger" role="alert">Fabricante já cadastrado!</div>');
-                    }
-                });
-            }
-        });
-    });
-</script>

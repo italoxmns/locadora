@@ -10,8 +10,8 @@
     }
     include_once 'layout/layout.php';
     include_once 'layout/menu.php';
-    include_once 'modal/manufacture.php';
-    include_once 'modal/category.php';
+    include_once 'modal/fabricante.php';
+    include_once 'modal/categoria.php';
     include_once 'database/conn.php';
     include_once 'model/query.php';
 
@@ -26,7 +26,7 @@
         </div>  
         <div class="col-8 py-2  text-white rounded-lg" id="formulario">
             <h3 class="text-center">Cadastro de Modelo</h3>
-            <form action="" method="POST" name="form" id="form">
+            <form action="" method="POST" name="formModelo" id="formModelo">
                 <div class="form-group ">
                     <div class="row">
                         <div class="col">
@@ -111,34 +111,3 @@
         </div>
     </div>     
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('#form').on('submit', function(event){
-            event.preventDefault();
-            if($('#name').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo nome não foi preenchido!</div>');
-            }else if($('#email').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo fabricante não foi preenchido!</div>');
-            }else if($('#telefone').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo categoria não foi preenchido!</div>');
-            }else{
-                //Receber os dados do formulário
-                var dados = $("#form").serialize();
-                $.post("cadastrarModelo.php", dados, function (retorna){
-                    alert(retorna)
-                    if(retorna == true){
-                        //Alerta de cadastro realizado com sucesso
-                        $("#msg").html('<div class="alert alert-success" role="alert">Modelo cadastrado com sucesso!</div>');
-                        
-                        //Limpar os campo
-                        $("#form")[0].reset();
-
-                    }else{
-                        $("#msg").html('<div class="alert alert-danger" role="alert">Modelo já cadastrado!</div>');
-                    }
-                });
-            }
-        });
-    });
-</script>

@@ -24,11 +24,11 @@
                                 Cadastro
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item ml-0" href="frontclient.php">
+                                <a class="dropdown-item ml-0" href="cliente.php">
                                     <i class="far fa-address-card"></i>
                                     &nbsp;Cadastar Cliente
                                 </a>
-                                <a class="dropdown-item ml-0" href="frontveiculo.php">
+                                <a class="dropdown-item ml-0" href="veiculo.php">
                                     <i class="fas fa-car"></i>
                                     &nbsp;Cadastrar Veiculo
                                 </a>

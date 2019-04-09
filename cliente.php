@@ -24,7 +24,7 @@
          <div class="col-8 py-2 text-white rounded-lg" id="formulario">
             <h3 class="text-center">Cadastro de Cliente</h3>
             
-            <form name="form" action="" method="POST" id="form" >
+            <form name="form" action="" method="POST" id="formCliente" >
               <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" class="form-control"  id="nome" name="nome" placeholder="Digite o nome">
@@ -54,35 +54,5 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('#form').on('submit', function(event){
-            event.preventDefault();
-            if($('#name').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo nome não foi preenchido!</div>');
-            }else if($('#email').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo e-mail não foi preenchido!</div>');
-            }else if($('#telefone').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo telefone não foi preenchido!</div>');
-            }else if($('#cpf').val() == ""){
-                $("#msg").html('<div class="alert alert-danger" role="alert">Campo cpf não foi preenchido!</div>');
-            }else{
-                //Receber os dados do formulário
-                var dados = $("#form").serialize();
-                $.post("cadastrarCliente.php", dados, function (retorna){
-                    if(retorna == true){
-                        //Alerta de cadastro realizado com sucesso
-                        $("#msg").html('<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>');
-                        
-                        //Limpar os campo
-                        $("#form")[0].reset();
 
-                    }else{
-                        $("#msg").html('<div class="alert alert-danger" role="alert">Usuário já cadastrado!</div>');
-                    }
-                });
-            }
-        });
-    });
-</script>
 
