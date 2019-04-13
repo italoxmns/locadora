@@ -1,5 +1,10 @@
 <?php
  include_once 'layout/layout.php';
+   session_start();
+          if(isset($_SESSION['usuarioLog'])){
+            header('location: admin.php');
+            die();
+          }
 ?>
 <section class="container-fluid py-4 my-4" >
     <div class="row text-white" id="divCarousel">
@@ -33,11 +38,6 @@
       </div>
       <div class="col-lg-6 p-0">
         <?php
-          session_start();
-          if(isset($_SESSION['usuarioLog'])){
-            header('location: admin.php');
-            die();
-          }
           include_once 'layout/menuCarousel.php';
           include_once 'modal/login.php';
           include_once 'modal/register.php';

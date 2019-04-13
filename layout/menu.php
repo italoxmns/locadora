@@ -1,4 +1,5 @@
 <!--        Menu-->
+
 <header>
     <div class="container my-0 pb-2">
         <div class="row justify-content-center py-2 ">
@@ -12,10 +13,10 @@
                     </div>
                     <div class="col-9">
                         <div class="row justify-content-end">
-                            <a class="btn mx-1" href="" role="button" >
+                            <button class="btn mx-1"  data-toggle="modal" data-target="#aluguel">
                                 <i class="fas fa-cart-plus"></i>
-                                Alugar</a>
-                            <a class="btn mx-1" href="" role="button" >
+                                Alugar</button>
+                            <a class="btn mx-1" href="veiculosDisponiveis.php" role="button" >
                                 <i class="fas fa-car-side"></i>
                                 Veiculos Disponíveis</a>
                             <div class="dropdown">
