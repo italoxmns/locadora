@@ -3,52 +3,52 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 CREATE SCHEMA IF NOT EXISTS `locadora` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `locadora` ;
 
+-- -----------------------------------------------------
+-- Table `locadora`.`cliente`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadora`.`cliente` (
-  `idclient` INT(11) NOT NULL AUTO_INCREMENT,
-  `cpf` VARCHAR(12) NOT NULL,
-  `name` VARCHAR(50) NOT NULL,
+  `idclient` INT NOT NULL AUTO_INCREMENT,
+  `cpf` VARCHAR(15) NOT NULL,
+  `nome` VARCHAR(50) NOT NULL,
   `telefone` VARCHAR(11) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT now(),
-  PRIMARY KEY (`idclient`, `cpf`))
+  PRIMARY KEY (`idclient`, `cpf`),
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci
 PACK_KEYS = DEFAULT;
 
-CREATE TABLE IF NOT EXISTS `locadora`.`veiculo` (
-  `idveiculo` INT(11) NOT NULL AUTO_INCREMENT,
-  `modelo_idmodelo` INT(11) NOT NULL,
-  `placa` VARCHAR(45) NOT NULL,
-  `ano` INT(11) NOT NULL,
-  `lugares` VARCHAR(45) NOT NULL,
-  `potencia` FLOAT(11) NOT NULL,
-  `status` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`idveiculo`, `placa`),
-  INDEX `fk_veiculo_modelo1_idx` (`modelo_idmodelo` ASC),
-  CONSTRAINT `fk_veiculo_modelo1`
-    FOREIGN KEY (`modelo_idmodelo`)
-    REFERENCES `locadora`.`modelo` (`idmodelo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
 
+-- -----------------------------------------------------
+-- Table `locadora`.`categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `locadora`.`categoria` (
+  `idcategoria` INT NOT NULL AUTO_INCREMENT,
+  `categoria` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idcategoria`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `locadora`.`fabricante`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadora`.`fabricante` (
-  `idfabricante` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `idfabricante` INT NOT NULL AUTO_INCREMENT,
+  `fabricante` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idfabricante`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `locadora`.`modelo`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadora`.`modelo` (
-  `idmodelo` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `categoria_idcategoria` INT(11) NOT NULL,
-  `fabricante_idfabricante` INT(11) NOT NULL,
+  `idmodelo` INT NOT NULL AUTO_INCREMENT,
+  `modelo` VARCHAR(45) NOT NULL,
+  `categoria_idcategoria` INT NOT NULL,
+  `fabricante_idfabricante` INT NOT NULL,
   PRIMARY KEY (`idmodelo`),
   INDEX `fk_modelo_categoria1_idx` (`categoria_idcategoria` ASC),
   INDEX `fk_modelo_fabricante1_idx` (`fabricante_idfabricante` ASC),
@@ -62,34 +62,53 @@ CREATE TABLE IF NOT EXISTS `locadora`.`modelo` (
     REFERENCES `locadora`.`fabricante` (`idfabricante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `locadora`.`categoria` (
-  `idcategoria` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idcategoria`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
 
+-- -----------------------------------------------------
+-- Table `locadora`.`veiculo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `locadora`.`veiculo` (
+  `idveiculo` INT NOT NULL AUTO_INCREMENT,
+  `modelo_idmodelo` INT NOT NULL,
+  `placa` VARCHAR(8) NOT NULL,
+  `ano` INT NOT NULL,
+  `lugares` VARCHAR(45) NOT NULL,
+  `potencia` VARCHAR(5) NOT NULL,
+  `status` TINYINT(1) NULL,
+  PRIMARY KEY (`idveiculo`, `placa`),
+  INDEX `fk_veiculo_modelo1_idx` (`modelo_idmodelo` ASC),
+  UNIQUE INDEX `placa_UNIQUE` (`placa` ASC),
+  CONSTRAINT `fk_veiculo_modelo1`
+    FOREIGN KEY (`modelo_idmodelo`)
+    REFERENCES `locadora`.`modelo` (`idmodelo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `locadora`.`user_pwd`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadora`.`user_pwd` (
-  `iduser_pwd` INT(11) NOT NULL AUTO_INCREMENT,
+  `iduser_pwd` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`iduser_pwd`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+  PRIMARY KEY (`iduser_pwd`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `locadora`.`aluga`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `locadora`.`aluga` (
-  `cliente_idclient` INT(11) NOT NULL,
-  `veiculo_idveiculo` INT(11) NOT NULL,
+  `cliente_idclient` INT NOT NULL,
+  `veiculo_idveiculo` INT NOT NULL,
   `valor` DECIMAL(6,2) NOT NULL,
   `dateInicial` DATETIME NOT NULL DEFAULT now(),
-  `dateFinal` VARCHAR(45) NULL DEFAULT NULL,
+  `dateFinal` DATETIME NULL,
   PRIMARY KEY (`cliente_idclient`, `veiculo_idveiculo`),
   INDEX `fk_cliente_has_veiculo_veiculo1_idx` (`veiculo_idveiculo` ASC),
   INDEX `fk_cliente_has_veiculo_cliente1_idx` (`cliente_idclient` ASC),
@@ -103,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `locadora`.`aluga` (
     REFERENCES `locadora`.`veiculo` (`idveiculo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+ENGINE = InnoDB;
+
+CREATE USER 'user1';
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

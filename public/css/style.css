@@ -70,7 +70,7 @@ a.link:hover{
     /* color:#515545; */
     color: white;
     text-decoration:underline;
-    }
+}
 
 .btn.dropdown-toggle{
     background-color: transparent;
@@ -81,10 +81,10 @@ a.link:hover{
 
 a.dropdown-item{
     color:#563d7c;
-    padding-top: 0.25rem;
+    /* padding-top: 0.25rem;
     padding-right: 0.5rem;
     padding-bottom: 0.25rem;
-    padding-left: 0.5rem;
+    padding-left: 0.5rem; */
 }
 a.dropdown-item:hover{
     background-color: #563d7c;
@@ -107,6 +107,15 @@ a.btn#menu{
 a.btn#menu:hover{
     background-color: #563d7c;
     color:white;
+}
+
+a.btn#edit:hover{
+     background-color: white;
+    color:#563d7c;
+}
+a.btn#options:hover{
+     background-color: white;
+    color:#563d7c;
 }
 
 .btn-outline-primary#btnCarousel {
@@ -139,16 +148,23 @@ tbody tr{
     color: #563d7c;
     background-color: white;
 }
-tbody tr:hover{
+/*
+tr th tr:hover{
     color:white;
-    background-color: #563d7c;
+    background-color: #563d7c;   
+    
 }
+*/
 .table thead tr th{
     border-bottom: 2px solid #563d7c;
     border-top: 1px solid #563d7c;
 }
 .table tr th,td{
     border-bottom: 1px solid #563d7c;
+        
+}
+.table td ,.table th{
+    vertical-align: baseline !important;
 }
 
 

@@ -1,15 +1,15 @@
 <?php
-    include_once 'model/query.php';
+include_once 'database/query.php';
 
-    $nome = filter_input(INPUT_POST, 'inputNome', FILTER_SANITIZE_STRING);
+$categoria = filter_input(INPUT_POST, 'inputCategoria', FILTER_SANITIZE_STRING);
 
-    $select = DBQuery('categoria'," where nome like '$nome'");
-    $linha = mysqli_num_rows($select);
+$select = DBQuery('categoria'," where categoria like '$categoria'");
+$linha = mysqli_num_rows($select);
 
-    if($linha =! 0){
-        echo DBInsert('categoria',"(nome)","('$nome')");
-    }else{     
-        echo false;
-    }
-    
+if($linha =! 0){
+    echo DBInsert('categoria',"(categoria)","('$categoria')");
+}else{     
+    echo false;
+}
+
 ?>

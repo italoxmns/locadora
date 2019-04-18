@@ -1,25 +1,25 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['usuarioLog'])){
+session_start();
+if(!isset($_SESSION['usuarioLog'])){
     header('location: index.php');
     session_destroy();
-  }
-  if(isset($_GET['sair'])){
+}
+if(isset($_GET['sair'])){
     session_destroy();
     header('location:index.php');
-  }
-  include_once 'layout/layout.php';
-  include_once 'layout/menu.php';
-  include_once 'model/query.php';
-    // realiza a conexao com o banco de dados
-    $con = DBConnect();
+}
+include_once 'public/layout/layout.php';
+include_once 'public/layout/menu.php';
+include_once 'database/query.php';
+// realiza a conexao com o banco de dados
+$con = DBConnect();
 
-    // seleciona a base de dados em que vamos trabalhar
-    $select = DBQuery('modelo');
-    
-    $linha = mysqli_fetch_assoc($select);
-    // calcula quantos dados retornaram
-    $total = mysqli_num_rows($select);
+// seleciona a base de dados em que vamos trabalhar
+$select = DBQuery('modelo');
+
+$linha = mysqli_fetch_assoc($select);
+// calcula quantos dados retornaram
+$total = mysqli_num_rows($select);
 ?>
 
 <!--        Formulario-->
@@ -28,7 +28,7 @@
         <div class="col-8 py-1 p-0 m-0 text-center">
             <span id="msg"></span>
         </div>
-        <div class="col-8 py-2  text-white rounded-lg" id="formulario">
+        <div class="col-10 py-2  text-white rounded-lg" id="formulario">
             <h3 class="text-center">Cadastro de Veículo</h3>
             <form action="" method="POST" id="formVeiculo" name="formVeiculo">
                 <div class="form-group ">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                    <div class="col-6">
+                        <div class="col-6">
                             <label for="inputLugares">Lugares</label>
                             <select class="custom-select" id="inputLugares" name="inputLugares" required>
                                 <option value="" selected> </option>
@@ -58,28 +58,29 @@
                         <div class="col-6">
                             <label for="inputModelo">Modelo</label>
                             <div class="row m-0">
-                                <div class="col-9 m-0 p-0">
-                                    <select class="custom-select" id="inputModelo" name="inputModelo">
-                                        <option value="" selected> </option>
-                                        <?php    
-                                            if($total > 0) {
-                                                do {
-                                        ?>
-                                            <option value="<?=$linha['idmodelo']?>"><?=$linha['name']?></option>
-                                        <?php
-                                            }while($linha = mysqli_fetch_assoc($select));
-                                                // fim do if 
-                                            }
-                                        ?>
-                                    </select>
+                            <div class="input-group">
+                                <select class="custom-select" id="inputModelo" name="inputModelo">
+                                    <option value="" selected> </option>
+                                    <?php    
+                                    if($total > 0) {
+                                        do {
+                                    ?>
+                                    <option value="<?=$linha['idmodelo']?>"><?=$linha['modelo']?></option>
+                                    <?php
+                                        }while($linha = mysqli_fetch_assoc($select));
+                                        // fim do if 
+                                    }
+                                    ?>
+                                </select>
+                                <div class="input-group-append">
+                                    <button class="btn border" type="button">
+                                        <a class="text-white" href="modelo.php" id="plus" >
+                                            <i class="fas fa-plus"></i>
+                                        </a>
+                                    </button>
                                 </div>
-                                <div class="col-3 m-0 pr-0">
-                                    <a class="btn m-0 p-1" href="modelo.php" id="plus">
-                                        <i class="fas fa-plus-circle p-0" style="font-size:1.7em;"></i>
-                                    </a>
                                 </div>
                             </div>
-                           
                         </div>
                     </div>
                 </div>
