@@ -1,5 +1,21 @@
-// Formularios 
 
+// $(document).ready(function(){
+//     $('.custom-control-input').on('change',function(event){
+//         event.preventDefault();
+//         alert($('.custom-control-input').prop('id'));
+//     });
+// });
+$(document).ready(function(){
+    $('#alugar').hide();
+    $("input[type='radio']").on('change',function(){
+        var radioValue = $("input[name='groupOfDefaultRadios']:checked").val();
+        if(radioValue){
+            $('#alugar').show();
+        }
+    });
+    
+});
+// Formularios 
 $(document).ready(function(){
     $('#formCliente').on('submit', function(event){
         event.preventDefault();

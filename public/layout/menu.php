@@ -13,9 +13,12 @@
                     </div>
                     <div class="col-9">
                         <div class="row justify-content-end">
-                            <a class="btn mx-1" role="button" href="" data-toggle="modal" data-target="#aluguel">
+                            <div >
+                                <a class="btn mx-1" role="button" href="" id="alugar" data-toggle="modal" data-target="#aluguel">
                                 <i class="fas fa-cart-plus"></i>
                                 &nbsp;Alugar</a>
+                            </div>
+                            
                             <a class="btn mx-1" href="veiculosDisponiveis.php" role="button" >
                                 <i class="fas fa-car-side"></i>
                                 &nbsp;Veiculos Disponíveis

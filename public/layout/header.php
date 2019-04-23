@@ -9,7 +9,7 @@
                     </a>
                 </div>
                 <div class="col-md-8 text-center">
-                    <h2 class="">S&A LOCADORA</h2>
+                    <h2 >S&A LOCADORA</h2>
                 </div>
             </div>
         </div>

@@ -13,8 +13,7 @@ include_once 'public/layout/layout.php';
 include_once 'public/layout/menu.php';
 include_once 'database/query.php';
 include_once 'modal/aluguel.php';
-include_once 'modal/editClient.php';
-include_once 'modal/deleteClient.php';
+include_once 'modal/recuse.php';
 
 $con = DBConnect();
 // seleciona a base de dados em que vamos trabalhar
@@ -26,19 +25,19 @@ $total = mysqli_num_rows($select);
 ?>
 
 <!--        conteudo-->
-<div class="container py-2">
+<section class="container py-2">
     <div class="row justify-content-center">
         <div class="col-sm-10 ">
             <div class="row py-2">
                     <div class="col-12 text-center py-2">
-                        <h5 class="display-4">Demanda de Clientes </h5>
+                        <h1>Demanda de Clientes </h1>
                     </div>
                 <div class="col-12 p-1 m-0">
-                    <table class="table">
+                    <table class="table text-center">
                         <thead>
                             <tr>
                                 <!-- Table row -->
-                                <th scope="col">ID</th>
+                                <th scope="col"><i class="fas fa-check fa-md"></i></th>
                                 <!-- Table header -->
                                 <th scope="col">Nome</th>
                                 <th scope="col">Email</th>
@@ -57,7 +56,10 @@ $total = mysqli_num_rows($select);
                         <tbody>
                             <tr>
                                 <th scope="col">
-                                    <?=$linha['idclient']?>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="radioGroup<?=$linha['idclient']?>" name="groupOfDefaultRadios">
+                                    <label class="custom-control-label" for="radioGroup<?=$linha['idclient']?>"></label>
+                                </div>
                                 </th>
                                 <!-- Table data -->
                                 <td>
@@ -73,11 +75,8 @@ $total = mysqli_num_rows($select);
                                     <?=$linha['date']?>
                                 </td>
                                 <td>
-                                    <a class="btn rounded" href="" id="option" data-toggle="modal" data-target="#update">
-                                        <i class="fas fa-user-edit fa-md"></i>
-                                    </a>
                                     <a class="btn rounded" href="" id="option" data-toggle="modal" data-target="#delete">
-                                        <i class="fas fa-user-minus fa-md"></i>
+                                        <i class="fas fa-times fa-lg"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -94,4 +93,4 @@ $total = mysqli_num_rows($select);
             </div>
         </div>
     </div>
-</div>
+</section>
